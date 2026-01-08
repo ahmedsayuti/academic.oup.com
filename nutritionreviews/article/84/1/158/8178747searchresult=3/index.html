@@ -7,7 +7,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Nourishing Mothers, Protecting Futures: Why Maternal Diet Is the First Line of Defense Against Gestational Diabetes | Health News</title>
         
-                
+        
+        
 
 
         <script type='text/javascript' defer src='//js.trendmd.com/trendmd.min.js' data-trendmdconfig='{"element":"#trendmd-suggestions"}' ></script>
@@ -40,8 +41,8 @@
   <meta name="theme-color" content="#002f65">
 
 
-    
 
+    
 
 <link rel="stylesheet" type="text/css" href="//oup.silverchair-cdn.com/UI/app/fonts/icons.css" />
 
@@ -271,12 +272,10 @@
                data-interstitiallinks="nutritionreviews/issue,nutritionreviews/advance-articles,nutritionreviews/advance-article,nutritionreviews/supplements,nutritionreviews/article,nutritionreviews/article-abstract,nutritionreviews/pages"
                data-subdomain="nutritionreviews" />
     
-    
 
 
 
     
-
 
     <script type="text/javascript">
         var NTPT_PGEXTRA= 'event_type=full-text&discipline_ot_level_1=Medicine and Health&discipline_ot_level_2=Allied Health Professions&supplier_tag=SC_Journals&object_type=Article&taxonomy=taxId%3a39%7ctaxLabel%3aAcademicSubjects%7cnodeId%3aMED00060%7cnodeLabel%3aDietetics+and+Nutrition%7cnodeLevel%3a3&siteid=nutritionreviews&authzrequired=false&doi=10.1093/nutrit/nuaf088';
@@ -288,9 +287,26 @@
     <script src="https://scholar.google.com/scholar_js/casa.js" async></script>
     
     <style>
+        /* Layout adjustments for sidebar */
+        .page-column-wrap {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        #ContentColumn {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        #Sidebar {
+            width: 320px;
+            flex-shrink: 0;
+        }
+        
         /* News article styling */
         .news-article-container {
-            max-width: 900px;
+            max-width: 100%;
             margin: 0 auto;
             padding: 2rem;
             background: white;
@@ -436,6 +452,62 @@
             font-size: 0.9rem;
         }
         
+        /* Sidebar widgets styling */
+        .widget-AdBlock {
+            margin-bottom: 20px;
+        }
+        
+        .artmet-wrapper {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .alertsWidget {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .alertsWidget h3 {
+            margin-top: 0;
+            color: #002f65;
+        }
+        
+        .email-alert-link {
+            display: block;
+            padding: 8px 0;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .email-alert-link:hover {
+            text-decoration: underline;
+        }
+        
+        .rail-widget_wrap {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .articleListNewAndPopularCombinedView {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .widget-related-taxonomies-wrap {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
         /* Horizontal footer grid */
         .footer-horizontal-grid {
             display: grid;
@@ -444,11 +516,27 @@
             padding: 2rem 0;
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            .page-column-wrap {
+                flex-direction: column;
+            }
+            
+            #Sidebar {
+                width: 100%;
+                order: 2;
+                margin-top: 30px;
+            }
+            
+            #ContentColumn {
+                order: 1;
+            }
+            
             .footer-horizontal-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+        }
+        
+        @media (max-width: 768px) {
             .news-title {
                 font-size: 2rem;
             }
@@ -463,8 +551,249 @@
             .footer-horizontal-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .news-article-container {
+                padding: 1rem;
+            }
         }
     </style>
+    <style>
+        /* Dropdown styles for main navigation */
+        .site-menu-lvl-1 {
+            display: none;
+            position: absolute;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 1000;
+            min-width: 200px;
+            border-radius: 4px;
+            padding: 10px 0;
+        }
+        
+        .site-menu-lvl-1 .site-menu-item {
+            display: block;
+            margin: 0;
+        }
+        
+        .site-menu-lvl-1 .nav-link {
+            padding: 8px 20px;
+            display: block;
+            color: #333;
+        }
+        
+        .site-menu-lvl-1 .nav-link:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Mobile dropdown panels */
+        .dropdown-panel {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            z-index: 1001;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-nav-dropdown {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        /* Active states */
+        .js-nav-dropdown[aria-expanded="true"] + .site-menu-lvl-1 {
+            display: block;
+        }
+        
+        /* Arrow rotation for dropdowns */
+        .js-nav-dropdown[aria-expanded="true"] .desktop-nav-arrow {
+            transform: rotate(180deg);
+        }
+        
+        /* Modal styles (already in previous code but included for completeness) */
+        .artmet-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 10000;
+        }
+        
+        .reveal-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 10001;
+        }
+        
+        /* Hide/Show classes */
+        .hide {
+            display: none !important;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Transitions */
+        .site-menu-lvl-1,
+        .dropdown-panel {
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Mobile specific */
+        @media (max-width: 768px) {
+            .site-menu-lvl-1 {
+                position: static;
+                box-shadow: none;
+                padding-left: 20px;
+            }
+            
+            .dropdown-panel {
+                position: fixed;
+                top: 0;
+                height: 100vh;
+                overflow-y: auto;
+            }
+            
+            .mobile-nav-dropdown .site-menu-lvl-1 {
+                display: none;
+            }
+            
+            .mobile-nav-dropdown .site-menu-item.has-submenu > .site-menu-lvl-1 {
+                display: block !important;
+                position: static;
+            }
+        }
+
+        /* ESSENTIAL DROPDOWN STYLES */
+        .site-menu-lvl-1 {
+            display: none !important;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 220px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            z-index: 1000;
+            border-radius: 4px;
+            padding: 8px 0;
+            margin-top: 5px;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* SHOW DROPDOWN WHEN ACTIVE */
+        .site-menu-lvl-1.show {
+            display: block !important;
+        }
+
+        /* HOVER SUPPORT FOR DESKTOP */
+        @media (min-width: 769px) {
+            .site-menu-item:hover .site-menu-lvl-1 {
+                display: block !important;
+            }
+        }
+
+        /* DROPDOWN LINKS */
+        .site-menu-lvl-1 .nav-link {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+
+        .site-menu-lvl-1 .nav-link:hover {
+            background-color: #f5f5f5;
+            color: #002f65;
+        }
+
+        /* MOBILE DROPDOWN STYLES */
+        @media (max-width: 768px) {
+            .site-menu-lvl-1 {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding-left: 15px;
+                margin-top: 0;
+            }
+            
+            .dropdown-panel {
+                display: none;
+            }
+            
+            .dropdown-panel[style*="block"] {
+                display: block !important;
+            }
+        }
+
+        /* MODAL STYLES */
+        .artmet-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 10000;
+        }
+
+        .reveal-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 10001;
+        }
+
+        /* TAB STYLES */
+        .articleListNewAndPopular-mode.active {
+            color: #002f65;
+            font-weight: bold;
+            border-bottom: 2px solid #002f65;
+        }
+
+        .articleListNewPopContent.hide {
+            display: none !important;
+        }
+
+        /* UTILITY CLASSES */
+        .hide {
+            display: none !important;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .show {
+            display: block !important;
+        }
+
+        /* FOCUS STATES FOR ACCESSIBILITY */
+        .js-nav-dropdown:focus,
+        .articleListNewAndPopular-mode:focus,
+        button:focus {
+            outline: 2px solid #002f65;
+            outline-offset: 2px;
+        }
+    </style>
+    
+    
 </head>
 
 <body data-sitename="nutritionreviews" class="off-canvas pg_Article pg_article   " theme-nutritionreviews data-sitestyletemplate="Journal" >
@@ -541,7 +870,7 @@
 
 
                     <li class="oup-header-menu-item mobile info-icon-menu-item">
-        <a href="/pages/information" target="_blank" class="at-info-button sigma-info-wrapper">
+        <a href="https://academic.oup.com/pages/information" target="_blank" class="at-info-button sigma-info-wrapper">
             <img class="sigma-info-icon" src="//oup.silverchair-cdn.com/UI/app/svg/i.svg" alt="Information" />
         </a>
     </li>
@@ -565,7 +894,7 @@
                 
 
                     <li class="oup-header-menu-item desktop info-icon-menu-item">
-        <a href="/pages/information" target="_blank" class="at-info-button sigma-info-wrapper">
+        <a href="https://academic.oup.com/pages/information" target="_blank" class="at-info-button sigma-info-wrapper">
             <img class="sigma-info-icon" src="//oup.silverchair-cdn.com/UI/app/svg/i.svg" alt="Information" />
         </a>
     </li>
@@ -1056,7 +1385,7 @@
 </div>
 
 <input id="hfCurrentBookSearch" name="hfCurrentBookSearch" type="hidden" value="" /><input id="hfCurrentBookScope" name="hfCurrentBookScope" type="hidden" value="CurrentBook" /><input id="hfBookSiteScope" name="hfBookSiteScope" type="hidden" value="Books" /><input id="hfSeriesScope" name="hfSeriesScope" type="hidden" value="taxWithOr" /><input id="hfParentSiteName" name="hfParentSiteName" type="hidden" value="Oxford Academic" /><input id="hfParentSiteUrl" name="hfParentSiteUrl" type="hidden" value="academic.oup.com" /><input id="hfSiteID" name="hfSiteID" type="hidden" value="5413" /><input id="hfParentSiteID" name="hfParentSiteID" type="hidden" value="191" /><input id="hfJournalSiteScope" name="hfJournalSiteScope" type="hidden" value="Journals" /><input id="hfParentSiteScope" name="hfParentSiteScope" type="hidden" value="Parent" /><input id="hfDefaultSearchURL" name="hfDefaultSearchURL" type="hidden" value="search-results?page=1&amp;q=" /><input id="hfIssueSearch" name="hfIssueSearch" type="hidden" value="&amp;fl_IssueID=169050" /><input id="hfIssueSiteScope" name="hfIssueSiteScope" type="hidden" value="Issue" /><input id="hfUmbrellaScope" name="hfUmbrellaScope" type="hidden" value="Umbrella" /><input id="hfUmbrellaSiteUrl" name="hfUmbrellaSiteUrl" type="hidden" value="academic.oup.com" /><input id="hfUmbrellaSiteId" name="hfUmbrellaSiteId" type="hidden" value="191" /><input id="hfDefaultAdvancedSearchUrl" name="hfDefaultAdvancedSearchUrl" type="hidden" value="advanced-search?page=1&amp;q=" /><input id="hfTaggedCollectionScope" name="hfTaggedCollectionScope" type="hidden" value="" /><input id="hfApplyLatestEditionSearchFacet" name="hfApplyLatestEditionSearchFacet" type="hidden" value="False" /><input id="hfIsLatestBookEdition" name="hfIsLatestBookEdition" type="hidden" value="False" />
-                    <div class="navbar-search-advanced"><a href="/nutritionreviews/advanced-search" class="advanced-search js-advanced-search">Advanced Search</a></div>
+                    <div class="navbar-search-advanced"><a href="https://academic.oup.com/nutritionreviews/advanced-search" class="advanced-search js-advanced-search">Advanced Search</a></div>
                 </div>
                 
                 <div class="navbar-search-collapsed"><a href="javascript:;" class="icon-menu_search js_expand-navsearch"><span class="screenreader-text">Search Menu</span></a></div>
@@ -1117,100 +1446,303 @@
 
 
 <div class="page-column-wrap">
-<!-- Removed the left InfoColumn as requested -->
-<div id="ContentColumn" class="page-column page-column--center" style="width:100%;">
-
-    <div class="content-inner-wrap">
-        <!-- News Article Content -->
-        <div class="news-article-container">
-            <h1 class="news-title">Nourishing Mothers, Protecting Futures: Why Maternal Diet Is the First Line of Defense Against Gestational Diabetes</h1>
-            
-            <div class="news-meta">
-                <span class="news-author">By Michael E. Brown, University of Texas Southwestern</span>
-                <span class="news-date">Published: November 5, 2023</span>
-            </div>
-            
-            <img src="../../../../../../assets/img/taiwo.JPG" alt="Taiwo - Maternal Nutrition Research" class="news-image">
-            
-            <div class="news-content">
-                <p><strong>Gestational diabetes mellitus (GDM)</strong> has quietly become one of the most pressing challenges in maternal and child health. Affecting nearly one in six pregnancies worldwide, it increases the risk of complications during pregnancy and raises the chances of both mother and child developing type 2 diabetes later in life (Plows et al., 2018; Wang et al., 2022). For too long, the focus has been solely on medical management once GDM is diagnosed. But emerging science now shows us that prevention—rooted in something as accessible as everyday diet—is one of our most powerful tools.</p>
-                 
-                <div class="news-highlight">
-                    <h3>Key Insight</h3>
-                    <p>Recent research underscores the transformative role of nutrition in shaping pregnancy outcomes. A landmark paper by Bankole, Winn, and Li (2022) in Nutrients revealed how maternal diets influence not only a mother's glucose levels but also the gut microbiome and the way genes are "switched on or off" during pregnancy.</p>
+    <div id="ContentColumn" class="page-column page-column--center">
+        <div class="content-inner-wrap">
+            <!-- News Article Content -->
+            <div class="news-article-container">
+                <h1 class="news-title">Nourishing Mothers, Protecting Futures: Why Maternal Diet Is the First Line of Defense Against Gestational Diabetes</h1>
+                
+                <div class="news-meta">
+                    <span class="news-author">By Michael E. Brown, University of Texas Southwestern</span>
+                    <span class="news-date">Published: November 5, 2023</span>
                 </div>
                 
-                <p>This combination of diet, gut health, and epigenetic changes—essentially, the instructions that tell our genes how to behave—can determine whether a child grows up with a higher or lower risk of diabetes and obesity. Put simply, what a mother eats during pregnancy doesn't just nourish her baby—it programs lifelong health.</p>
+                <img src="../../../../../../assets/img/taiwo.JPG" alt="Taiwo - Maternal Nutrition Research" class="news-image">
                 
-                <p>Other studies confirm this.  Researchers have shown that probiotic and prebiotic interventions during pregnancy reduce the risk of GDM by improving insulin sensitivity and supporting a healthier gut microbiome (Karamali et al., 2016; Amirani et al., 2022). Dietary approaches like the Mediterranean diet, rich in vegetables, fruits, olive oil, and legumes, have also been proven effective. In the St. Carlos GDM Prevention Study, adherence to Mediterranean diet principles reduced the incidence of gestational diabetes and improved both maternal and neonatal outcomes (Assaf-Balut et al., 2017). Similarly, Basu et al. (2021) reported that supplementing pregnant women with blueberries and fiber led to lower maternal weight gain and improved blood sugar control.</p>
-                                
-                <p>What makes Bankole Taiwo’s work particularly groundbreaking is its focus on how simple foods—such as soy, broccoli, and green tea—carry bioactive compounds that can “reprogram” metabolic pathways, not only lowering the mother’s risk of GDM but also protecting the child against future obesity and diabetes (Bankole et al., 2022; Chen et al., 2022). This provides a hopeful message: prevention doesn’t require expensive treatments. It can start with the groceries in our shopping carts.</p>
-                
-                <p>For USDAs Food and Nutrition Service, these findings reinforce the importance of strengthening dietary guidance and support through programs like WIC. By integrating cutting-edge nutritional science into everyday public health messaging, USDA can help mothers make choices that improve pregnancy outcomes, reduce the burden of diabetes, and give the next generation a healthier start.  We often say “you are what you eat.” For mothers and their children, science now tells us: you become what your mother eats. The path forward is clear—by investing in maternal nutrition today, we are investing in a healthier America tomorrow.</p>
-            </div>
-            
-            <!-- Comments Section -->
-            <div class="comments-section">
-                <h2 class="comments-title">Reader Comments</h2>
-                
-                <div class="comment-form">
-                    <h3>Share Your Thoughts</h3>
-                    <form id="commentForm">
-                        <div class="form-group">
-                            <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email (will not be published) *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Your Comment *</label>
-                            <textarea id="comment" name="comment" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Post Comment</button>
-                    </form>
+                <div class="news-content">
+                    <p><strong>Gestational diabetes mellitus (GDM)</strong> has quietly become one of the most pressing challenges in maternal and child health. Affecting nearly one in six pregnancies worldwide, it increases the risk of complications during pregnancy and raises the chances of both mother and child developing type 2 diabetes later in life (Plows et al., 2018; Wang et al., 2022). For too long, the focus has been solely on medical management once GDM is diagnosed. But emerging science now shows us that prevention—rooted in something as accessible as everyday diet—is one of our most powerful tools.</p>
+                     
+                    <div class="news-highlight">
+                        <h3>Key Insight</h3>
+                        <p>Recent research underscores the transformative role of nutrition in shaping pregnancy outcomes. A landmark paper by Bankole, Winn, and Li (2022) in Nutrients revealed how maternal diets influence not only a mother's glucose levels but also the gut microbiome and the way genes are "switched on or off" during pregnancy.</p>
+                    </div>
+                    
+                    <p>This combination of diet, gut health, and epigenetic changes—essentially, the instructions that tell our genes how to behave—can determine whether a child grows up with a higher or lower risk of diabetes and obesity. Put simply, what a mother eats during pregnancy doesn't just nourish her baby—it programs lifelong health.</p>
+                    
+                    <p>Other studies confirm this.  Researchers have shown that probiotic and prebiotic interventions during pregnancy reduce the risk of GDM by improving insulin sensitivity and supporting a healthier gut microbiome (Karamali et al., 2016; Amirani et al., 2022). Dietary approaches like the Mediterranean diet, rich in vegetables, fruits, olive oil, and legumes, have also been proven effective. In the St. Carlos GDM Prevention Study, adherence to Mediterranean diet principles reduced the incidence of gestational diabetes and improved both maternal and neonatal outcomes (Assaf-Balut et al., 2017). Similarly, Basu et al. (2021) reported that supplementing pregnant women with blueberries and fiber led to lower maternal weight gain and improved blood sugar control.</p>
+                                    
+                    <p>What makes Bankole Taiwo’s work particularly groundbreaking is its focus on how simple foods—such as soy, broccoli, and green tea—carry bioactive compounds that can "reprogram" metabolic pathways, not only lowering the mother's risk of GDM but also protecting the child against future obesity and diabetes (Bankole et al., 2022; Chen et al., 2022). This provides a hopeful message: prevention doesn't require expensive treatments. It can start with the groceries in our shopping carts.</p>
+                    
+                    <p>For USDAs Food and Nutrition Service, these findings reinforce the importance of strengthening dietary guidance and support through programs like WIC. By integrating cutting-edge nutritional science into everyday public health messaging, USDA can help mothers make choices that improve pregnancy outcomes, reduce the burden of diabetes, and give the next generation a healthier start.  We often say "you are what you eat." For mothers and their children, science now tells us: you become what your mother eats. The path forward is clear—by investing in maternal nutrition today, we are investing in a healthier America tomorrow.</p>
                 </div>
                 
-                <div class="comments-list">
-                    <h3>Recent Comments</h3>
+                <!-- Comments Section -->
+                <div class="comments-section">
+                    <h2 class="comments-title">Reader Comments</h2>
                     
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Sarah Johnson, Registered Dietitian</span>
-                            <span class="comment-date">2 days ago</span>
-                        </div>
-                        <p>This article highlights exactly what I've been telling my patients! Nutrition during pregnancy is foundational. The Mediterranean diet approach has shown incredible results in my practice, especially when started early in pregnancy.</p>
+                    <div class="comment-form">
+                        <h3>Share Your Thoughts</h3>
+                        <form id="commentForm">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email (will not be published) *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">Your Comment *</label>
+                                <textarea id="comment" name="comment" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Post Comment</button>
+                        </form>
                     </div>
                     
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Dr. Robert Chen</span>
-                            <span class="comment-date">3 days ago</span>
+                    <div class="comments-list">
+                        <h3>Recent Comments</h3>
+                        
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="comment-author">Sarah Johnson, Registered Dietitian</span>
+                                <span class="comment-date">2 days ago</span>
+                            </div>
+                            <p>This article highlights exactly what I've been telling my patients! Nutrition during pregnancy is foundational. The Mediterranean diet approach has shown incredible results in my practice, especially when started early in pregnancy.</p>
                         </div>
-                        <p>Important research that shifts the paradigm from treatment to prevention. We need more public health initiatives focusing on preventive nutrition. The epigenetic implications mentioned here are particularly fascinating and deserve more attention.</p>
-                    </div>
-                    
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Maria Gonzalez</span>
-                            <span class="comment-date">5 days ago</span>
+                        
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="comment-author">Dr. Robert Chen</span>
+                                <span class="comment-date">3 days ago</span>
+                            </div>
+                            <p>Important research that shifts the paradigm from treatment to prevention. We need more public health initiatives focusing on preventive nutrition. The epigenetic implications mentioned here are particularly fascinating and deserve more attention.</p>
                         </div>
-                        <p>As a mother who had gestational diabetes during my first pregnancy, I wish I had this information earlier. Simple dietary changes made a huge difference in my second pregnancy. More education is needed for expecting mothers!</p>
-                    </div>
-                    
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">James Wilson</span>
-                            <span class="comment-date">1 week ago</span>
+                        
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="comment-author">Maria Gonzalez</span>
+                                <span class="comment-date">5 days ago</span>
+                            </div>
+                            <p>As a mother who had gestational diabetes during my first pregnancy, I wish I had this information earlier. Simple dietary changes made a huge difference in my second pregnancy. More education is needed for expecting mothers!</p>
                         </div>
-                        <p>Excellent article. The connection between maternal diet and long-term child health is something that should be emphasized more in prenatal care. Prevention is always better than treatment.</p>
+                        
+                        <div class="comment">
+                            <div class="comment-header">
+                                <span class="comment-author">James Wilson</span>
+                                <span class="comment-date">1 week ago</span>
+                            </div>
+                            <p>Excellent article. The connection between maternal diet and long-term child health is something that should be emphasized more in prenatal care. Prevention is always better than treatment.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+    <!-- Sidebar Widgets -->
+    <div id="Sidebar" class="page-column page-column--right">
+        <div class="widget widget-AdBlock widget-instance-ArticlePageTopSidebar">
+            <div class="js-adBlock-parent-wrap adblock-parent-wrap">
+                <div class="adBlockMainBodyTop-wrap js-adBlockMainBodyTop hide">
+                    <div id="adBlockMainBodyTop" class="js-adblock at-adblock"
+                         data-lazy-load-margin="150">
+                        <script>
+                            googletag.cmd.push(function () {
+                                googletag.display('adBlockMainBodyTop');
+                            });
+                        </script>
+                    </div>
+                    <div class="advertisement-text at-adblock js-adblock-advertisement-text hide">Advertisement</div>
+                </div>
+            </div> 
+        </div>
+        
+        <div class="widget widget-dynamic " data-count="1"> 
+            <div class="widget-dynamic-inner-wrap">
+                <div class="widget widget-dynamic " data-count="8"> 
+                    <div class="widget-dynamic-inner-wrap">
+                        <div class="widget widget-ArticleLevelMetrics widget-instance-Article_RightRailB0Article_RightRail_ArticleLevelMetrics">
+                            <div class="artmet-wrapper horizontal-artmet">
+                                <div class="contentmet-border">
+                                    <div class="contentmet-wrapper horizontal-contentmet">
+                                        <div class="contentmet-citations contentmet-badges-wrap js-contentmet-citations hide">
+                                            <h3 class="contentmet-text">Citations</h3>
+                                            <div class="contentmet-item contentmet-dimensions">
+                                                <div class="widget widget-DimensionsBadge widget-instance-ArticleLevelMetrics_DimensionsBadge">
+                                                    <span class="__dimensions_badge_embed__" 
+                                                          data-doi="10.1093/nutrit/nuaf088" 
+                                                          data-legend="never" 
+                                                          data-style="small_circle" 
+                                                          data-hide-zero-citations="false"></span>
+                                                    <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="contentmet-views contentmet-badges-wrap js-contentmet-views">
+                                            <h3 class="contentmet-text">Views</h3>
+                                            <div class="contentmet-item circle-text circle-text-views">
+                                                <div class="contentmet-number">1,893</div>
+                                            </div>
+                                        </div>
+                                        <div class="contentmet-item contentmet-badges-wrap">
+                                            <h3 class="contentmet-text">Altmetric</h3>
+                                            <div class="contentmet-item contentmet-altmetric">
+                                                <div class="widget widget-AltmetricLink widget-instance-ArticleLevelMetrics_AltmetricLinkSummary">
+                                                    <div id="altmetricEmbedId"
+                                                         runat="server"
+                                                         class='altmetric-embed'
+                                                         data-badge-type="donut"
+                                                         data-hide-no-mentions="false"
+                                                         data-doi="10.1093/nutrit/nuaf088"></div>
+                                                    <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="contentmet-modal-trigger-wrap clearfix">
+                                            <button type="button" class="artmet-modal-trigger js-artmet-modal-trigger at-alm-metrics-modal-trigger" data-resource-id="8178747" data-resource-type="3" aria-haspopup="dialog" aria-expanded="false" aria-controls="MetricsModal">
+                                                <img class="contentmet-info-icon" src="//oup.silverchair-cdn.com/UI/app/svg/i.svg" alt="Information">
+                                                <span class="contentmet-more-info">More metrics information</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="widget widget-OUPEmailAlerts widget-instance-Article_RightRailB0Article_RightRail_OUPEmailAlerts">
+                            <div class="alertsWidget js-alerts-widget">
+                                <h3>Email alerts</h3>
+                                <div class="userAlert alertType-LatestIssue">
+                                    <a href="https://academic.oup.com/nutritionreviews/new-journals-alert"
+                                       class="js-my-email-alert email-alert-link">
+                                        New journal issues
+                                    </a>
+                                </div>
+                                <div class="userAlert alertType-NewJournalArticles">
+                                    <a href="https://academic.oup.com/nutritionreviews/new-journal-articles-alert"
+                                       class="js-my-email-alert email-alert-link">
+                                        New journal articles
+                                    </a>
+                                </div>
+                                <div class="userAlert alertType-ContentActivity">
+                                    <button type="button"
+                                            class="js-activity-alert-button email-alert-link"
+                                            data-user-logged-in="False"
+                                            data-alert-type="ContentActivity"
+                                            data-is-content-page="True"
+                                            data-alert-signup-link=""
+                                            data-resourceid="8178747"
+                                            data-resourcetypeid="Article"
+                                            data-reveal-id="activityAlertModal"
+                                            aria-expanded="false">
+                                        Activity related to this article
+                                    </button>
+                                </div>
+                                <div class="userAlert alertType-MarketingLink">
+                                    <a href="https://academic.oup.com/my-account/communication-preferences">Sign up for marketing</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="widget widget-TrendMD widget-instance-Article_RightRailB0trendmd">
+                            <div id="trendmd-suggestions"></div>
+                            <div class="options" data-suppress-if-hum-is-present="True"></div> 
+                        </div>
+                        
+                        <div class="widget widget-ArticleCitedBy widget-instance-Article_RightRailB0Article_RightRail_ArticleCitedBy">
+                            <div class="rail-widget_wrap vt-articles-cited-by">
+                                <h3 class="article-cited-title">Citing articles via</h3>
+                                <div class="widget-links_wrap">
+                                    <div class="article-cited-link-wrap web-of-science">
+                                        <a href="https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=silverchair&SrcAuth=WosAPI&KeyUT=WOS:001519656200001&DestLinkType=CitingArticles&DestApp=WOS_CPL" target="_blank" rel="nofollow">Web of Science (1)</a>
+                                    </div>
+                                    <div class="article-cited-link-wrap google-scholar-url">
+                                        <a href="http://scholar.google.com/scholar?q=link:https%3A%2F%2Facademic.oup.com%2Fnutritionreviews%2Farticle%2F84%2F1%2F158%2F8178747" target="_blank" rel="nofollow">Google Scholar</a>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                        
+                        <div class="widget widget-ArticleListNewAndPopular widget-instance-Article_RightRailB0Article_RightRail_ArticleNewPopularCombined">
+                            <ul class="articleListNewAndPopularCombinedView">
+                                <li>
+                                    <h3>
+                                        <a href="javascript:;" class="articleListNewAndPopular-mode active" data-mode="MostRecent">Latest</a>
+                                    </h3>
+                                </li>
+                                <li>
+                                    <h3>
+                                        <a href="javascript:;" class="articleListNewAndPopular-mode " data-mode="MostRead">Most Read</a>
+                                    </h3>
+                                </li>
+                                <li>
+                                    <h3>
+                                        <a href="javascript:;" class="articleListNewAndPopular-mode " data-mode="MostCited">Most Cited</a>
+                                    </h3>
+                                </li>
+                            </ul>
+                            <section class="articleListNewPopContent articleListNewAndPopular-ContentView-MostRecent hasContent">
+                                <div id="newPopularList-Article_RightRailB0Article_RightRail_ArticleNewPopularCombined" class="fb">
+                                    <div class="widget-layout widget-layout--vert ">
+                                        <div class="widget-columns widget-col-1">
+                                            <div class="col">
+                                                <div class="widget-dynamic-entry journalArticleItem at-widget-entry-SCL">
+                                                    <span class="hfDoi" data-attribute="10.1093/nutrit/nuaf195" aria-hidden="true"></span>
+                                                    <a class="journal-link" href="https://academic.oup.com/nutritionreviews/advance-article/doi/10.1093/nutrit/nuaf195/8416312?searchresult=1">
+                                                        <div class="widget-dynamic-journal-title">
+                                                            The Role of Immunological Challenges, Oxidative Stress, and Dietary Interventions in Managing Hashimoto's Thyroiditis: A Narrative Review
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <!-- Additional articles would continue here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        
+                        <div class="widget widget-RelatedTaxonomies widget-instance-Article_RightRailB0Article_RightRail_RelatedTaxonomies">
+                            <div class="widget-related-taxonomies-wrap vt-related-taxonomies">
+                                <div class="widget-related-taxonomies_title">More from Oxford Academic</div>
+                                <div class="widget-related-taxonomies">
+                                    <a id="more-from-oa-AcademicSubjects_MED00020" class="related-taxonomies-link" href="https://academic.oup.com/search-results?tax=AcademicSubjects/MED00020">Allied Health Professions</a>
+                                </div>
+                                <div class="widget-related-taxonomies">
+                                    <a id="more-from-oa-AcademicSubjects_MED00060" class="related-taxonomies-link" href="https://academic.oup.com/search-results?tax=AcademicSubjects/MED00060">Dietetics and Nutrition</a>
+                                </div>
+                                <div class="widget-related-taxonomies">
+                                    <a id="more-from-oa-AcademicSubjects_MED00010" class="related-taxonomies-link" href="https://academic.oup.com/search-results?tax=AcademicSubjects/MED00010">Medicine and Health</a>
+                                </div>
+                                <div class="widget-related-taxonomies">
+                                    <a id="more-from-oa-format-Books" class="related-taxonomies-link" href="https://academic.oup.com/books">Books</a>
+                                </div>
+                                <div class="widget-related-taxonomies">
+                                    <a id="more-from-oa-format-Journals" class="related-taxonomies-link" href="https://academic.oup.com/journals">Journals</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="widget widget-AdBlock widget-instance-ArticlePageTopMainBodyBottom">
+            <div class="js-adBlock-parent-wrap adblock-parent-wrap">
+                <div class="adBlockMainBodyBottom-wrap js-adBlockMainBodyBottom hide">
+                    <div id="adBlockMainBodyBottom" class="js-adblock at-adblock js-adblock-lazy-loading"
+                         data-lazy-load-margin="150">
+                        <script>
+                            googletag.cmd.push(function () {
+                                googletag.display('adBlockMainBodyBottom');
+                            });
+                        </script>
+                    </div>
+                    <div class="advertisement-text at-adblock js-adblock-advertisement-text hide">Advertisement</div>
+                </div>
+            </div> 
+        </div>
+    </div>
 </div>
                 </div>
             </section>
@@ -1239,32 +1771,32 @@
                     <h3>About Oxford Academic</h3>
                     <ul class="footer-links">
                         <li><a href="http://global.oup.com/?cc=us" target="_blank">Oxford University Press</a></li>
-                        <li><a href="/pages/about_us">About Oxford Academic</a></li>
-                        <li><a href="/pages/journals/about_journals">Oxford Academic Journals</a></li>
-                        <li><a href="/pages/books/about_books">University of Oxford</a></li>
-                        <li><a href="/pages/about_us#Oxford_University_Press_Ethics_Line">OUP Ethics Line</a></li>
+                        <li><a href="https://academic.oup.com/pages/about_us">About Oxford Academic</a></li>
+                        <li><a href="https://academic.oup.com/pages/journals/about_journals">Oxford Academic Journals</a></li>
+                        <li><a href="https://academic.oup.com/pages/books/about_books">University of Oxford</a></li>
+                        <li><a href="https://academic.oup.com/pages/about_us#Oxford_University_Press_Ethics_Line">OUP Ethics Line</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul class="footer-links">
-                        <li><a href="/journals">Oxford Academic Journals</a></li>
-                        <li><a href="/books">Oxford Academic Books</a></li>
-                        <li><a href="/pages/about_us#Oxford_University_Press_Ethics_Line">Oxford Academic Ethics Line</a></li>
-                        <li><a href="/nutritionreviews/issue">Current Issue</a></li>
-                        <li><a href="/nutritionreviews/advance-articles">Latest Articles</a></li>
+                        <li><a href="https://academic.oup.com/journals">Oxford Academic Journals</a></li>
+                        <li><a href="https://academic.oup.com/books">Oxford Academic Books</a></li>
+                        <li><a href="https://academic.oup.com/pages/about_us#Oxford_University_Press_Ethics_Line">Oxford Academic Ethics Line</a></li>
+                        <li><a href="https://academic.oup.com/nutritionreviews/issue">Current Issue</a></li>
+                        <li><a href="https://academic.oup.com/nutritionreviews/advance-articles">Latest Articles</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Account & Services</h3>
                     <ul class="footer-links">
-                        <li><a href="/my-account/register">Register</a></li>
-                        <li><a href="/my-account/sign-in">Sign in</a></li>
-                        <li><a href="/my-account/email-alerts">Manage email alerts</a></li>
-                        <li><a href="/nutritionreviews/subscribe">Subscribe</a></li>
-                        <li><a href="/nutritionreviews/pages/General_Instructions">Author Guidelines</a></li>
+                        <li><a href="https://academic.oup.com/my-account/register">Register</a></li>
+                        <li><a href="https://academic.oup.com/my-account/sign-in">Sign in</a></li>
+                        <li><a href="https://academic.oup.com/my-account/email-alerts">Manage email alerts</a></li>
+                        <li><a href="https://academic.oup.com/nutritionreviews/subscribe">Subscribe</a></li>
+                        <li><a href="https://academic.oup.com/nutritionreviews/pages/General_Instructions">Author Guidelines</a></li>
                     </ul>
                 </div>
                 
@@ -1275,7 +1807,7 @@
                         <li><a href="https://x.com/OxfordAcademic" target="_blank">Twitter/X</a></li>
                         <li><a href="https://www.linkedin.com/company/oxford-university-press/" target="_blank">LinkedIn</a></li>
                         <li><a href="https://www.youtube.com/channel/UCUHZtLkk4VKJjUjRjPCi1tQ" target="_blank">YouTube</a></li>
-                        <li><a href="/pages/contact">Contact Us</a></li>
+                        <li><a href="https://academic.oup.com/pages/contact">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -1298,7 +1830,7 @@
                                 <a href="http://global.oup.com/legal/accessibility?cc=us" target="_blank">Accessibility</a>
                         </div>
                         <div class="footer-policy-link">
-                                <a href="/pages/legal">Legal Notice</a>
+                                <a href="https://academic.oup.com/pages/legal">Legal Notice</a>
                         </div>
                 </div>
             </div>
@@ -1340,7 +1872,6 @@
 
 <script src="//oup.silverchair-cdn.com/Themes/Silver/app/js/v-639032424147212475/vendor.min.js" type="text/javascript"></script>
 <script src="//oup.silverchair-cdn.com/Themes/Silver/app/js/v-639032424147212475/app.min.js" type="text/javascript"></script>
-
 
 
 
@@ -1394,6 +1925,850 @@
             });
         }
     });
+</script>
+<script>
+    // ============================================
+    // 1. DOM READY FUNCTION
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM Content Loaded - Initializing all interactive elements');
+        
+        // Initialize all functionality
+        initMainNavigation();
+        initMobileMenu();
+        initSearchFunctionality();
+        initAccountFeatures();
+        initModals();
+        initTabs();
+        initMetricsModal();
+        initEmailAlerts();
+        initComments();
+        initAds();
+        initResponsiveBehavior();
+        
+        // Initialize any other plugins
+        initExternalPlugins();
+    });
+    
+    // ============================================
+    // 2. MAIN NAVIGATION DROPDOWNS
+    // ============================================
+    function initMainNavigation() {
+        console.log('Initializing main navigation...');
+        
+        // Desktop dropdowns
+        const desktopDropdowns = document.querySelectorAll('.navbar-menu .js-nav-dropdown');
+        
+        desktopDropdowns.forEach(dropdown => {
+            // Click handler
+            dropdown.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                const submenuId = this.getAttribute('aria-controls');
+                const submenu = document.getElementById(submenuId);
+                
+                // Close all other dropdowns
+                desktopDropdowns.forEach(other => {
+                    if (other !== this) {
+                        other.setAttribute('aria-expanded', 'false');
+                        const otherSubmenuId = other.getAttribute('aria-controls');
+                        const otherSubmenu = document.getElementById(otherSubmenuId);
+                        if (otherSubmenu) otherSubmenu.classList.remove('show');
+                    }
+                });
+                
+                // Toggle current dropdown
+                this.setAttribute('aria-expanded', !isExpanded);
+                if (submenu) {
+                    submenu.classList.toggle('show', !isExpanded);
+                }
+            });
+            
+            // Hover support for desktop
+            if (window.innerWidth > 768) {
+                dropdown.addEventListener('mouseenter', function() {
+                    this.setAttribute('aria-expanded', 'true');
+                    const submenuId = this.getAttribute('aria-controls');
+                    const submenu = document.getElementById(submenuId);
+                    if (submenu) submenu.classList.add('show');
+                });
+                
+                dropdown.closest('.site-menu-item').addEventListener('mouseleave', function() {
+                    const dropdown = this.querySelector('.js-nav-dropdown');
+                    if (dropdown) {
+                        dropdown.setAttribute('aria-expanded', 'false');
+                        const submenuId = dropdown.getAttribute('aria-controls');
+                        const submenu = document.getElementById(submenuId);
+                        if (submenu) submenu.classList.remove('show');
+                    }
+                });
+            }
+        });
+        
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.navbar-menu .site-menu-item')) {
+                desktopDropdowns.forEach(dropdown => {
+                    dropdown.setAttribute('aria-expanded', 'false');
+                    const submenuId = dropdown.getAttribute('aria-controls');
+                    const submenu = document.getElementById(submenuId);
+                    if (submenu) submenu.classList.remove('show');
+                });
+            }
+        });
+    }
+    
+    // ============================================
+    // 3. MOBILE MENU FUNCTIONALITY
+    // ============================================
+    function initMobileMenu() {
+        console.log('Initializing mobile menu...');
+        
+        // Mobile menu toggle
+        const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+        const mobileNavDropdown = document.querySelector('.mobile-nav-dropdown');
+        
+        if (mobileNavToggle && mobileNavDropdown) {
+            mobileNavToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                mobileNavDropdown.style.display = !isExpanded ? 'block' : 'none';
+            });
+        }
+        
+        // Mobile search toggle
+        const mobileSearchToggle = document.querySelector('.mobile-search-toggle');
+        const mobileSearchDropdown = document.querySelector('.mobile-search-dropdown');
+        
+        if (mobileSearchToggle && mobileSearchDropdown) {
+            mobileSearchToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                mobileSearchDropdown.style.display = !isExpanded ? 'block' : 'none';
+            });
+        }
+        
+        // Mobile dropdown arrows
+        const mobileNavArrows = document.querySelectorAll('.mobile-nav-arrow');
+        mobileNavArrows.forEach(arrow => {
+            arrow.addEventListener('click', function(e) {
+                e.preventDefault();
+                const parentItem = this.closest('.site-menu-item');
+                const dropdown = parentItem.querySelector('.js-nav-dropdown');
+                if (dropdown) dropdown.click();
+            });
+        });
+        
+        // Mobile submenus
+        const mobileDropdowns = document.querySelectorAll('.mobile-nav-dropdown .js-nav-dropdown');
+        mobileDropdowns.forEach(dropdown => {
+            dropdown.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                const submenuId = this.getAttribute('aria-controls');
+                const submenu = document.getElementById(submenuId);
+                
+                this.setAttribute('aria-expanded', !isExpanded);
+                if (submenu) {
+                    submenu.style.display = !isExpanded ? 'block' : 'none';
+                }
+            });
+        });
+    }
+    
+    // ============================================
+    // 4. SEARCH FUNCTIONALITY
+    // ============================================
+    function initSearchFunctionality() {
+        console.log('Initializing search...');
+        
+        // Expand search button
+        const expandSearch = document.querySelector('.js_expand-navsearch');
+        const searchContainer = document.querySelector('.js-navbar-search-container');
+        
+        if (expandSearch && searchContainer) {
+            expandSearch.addEventListener('click', function(e) {
+                e.preventDefault();
+                searchContainer.style.display = 'block';
+                const searchInput = document.querySelector('.js-microsite-search-term');
+                if (searchInput) searchInput.focus();
+            });
+        }
+        
+        // Close search button
+        const closeSearch = document.querySelector('.js_close-navsearch');
+        if (closeSearch && searchContainer) {
+            closeSearch.addEventListener('click', function(e) {
+                e.preventDefault();
+                searchContainer.style.display = 'none';
+            });
+        }
+        
+        // Search submission
+        const searchButtons = document.querySelectorAll('.navbar-search-submit, .mobile-search-submit');
+        searchButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                let searchInput;
+                
+                if (this.classList.contains('mobile-search-submit')) {
+                    searchInput = document.querySelector('.js-mobile-microsite-search-term');
+                } else {
+                    searchInput = document.querySelector('.js-microsite-search-term');
+                }
+                
+                if (searchInput && searchInput.value.trim()) {
+                    performSearch(searchInput.value.trim());
+                }
+            });
+        });
+        
+        // Enter key search
+        const searchInputs = document.querySelectorAll('.js-microsite-search-term, .js-mobile-microsite-search-term');
+        searchInputs.forEach(input => {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    if (this.value.trim()) {
+                        performSearch(this.value.trim());
+                    }
+                }
+            });
+        });
+        
+        // Advanced search link
+        const advancedSearch = document.querySelector('.js-advanced-search');
+        if (advancedSearch) {
+            advancedSearch.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'https://academic.oup.com/nutritionreviews/advanced-search';
+            });
+        }
+    }
+    
+    function performSearch(query) {
+        const searchFilter = document.querySelector('.js-navbar-search-filter') || 
+                           document.querySelector('.js-mobile-navbar-search-filter');
+        let scope = '';
+        
+        if (searchFilter) {
+            scope = searchFilter.value;
+        }
+        
+        let searchUrl = 'https://academic.oup.com/nutritionreviews/search-results?page=1&q=' + encodeURIComponent(query);
+        
+        if (scope === 'Issue') {
+            searchUrl += '&fl_IssueID=169050';
+        } else if (scope && scope !== '') {
+            searchUrl = 'https://academic.oup.com/search-results?page=1&q=' + encodeURIComponent(query) + '&scope=' + encodeURIComponent(scope);
+        }
+        
+        window.location.href = searchUrl;
+    }
+    
+    // ============================================
+    // 5. ACCOUNT & LOGIN FEATURES
+    // ============================================
+    function initAccountFeatures() {
+        console.log('Initializing account features...');
+        
+        // Account button
+        const accountButton = document.querySelector('.js-account-button');
+        const loginBox = document.querySelector('.js-login-box-placeholder');
+        
+        if (accountButton && loginBox) {
+            accountButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                loginBox.classList.toggle('hide', isExpanded);
+            });
+        }
+        
+        // Seamless Access
+        const shibbolethButtons = document.querySelectorAll('.js-shibboleth-action');
+        shibbolethButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Institutional login would open here');
+            });
+        });
+        
+        // Login links in modals
+        const signInLinks = document.querySelectorAll('.js-sign-in-link');
+        const registerLinks = document.querySelectorAll('.js-register-link');
+        
+        signInLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = '/my-account/sign-in';
+            });
+        });
+        
+        registerLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = '/my-account/register';
+            });
+        });
+    }
+    
+    // ============================================
+    // 6. MODALS & POPUPS
+    // ============================================
+    function initModals() {
+        console.log('Initializing modals...');
+        
+        // Close all modals when clicking outside
+        document.addEventListener('click', function(e) {
+            // Close dropdowns
+            const openDropdowns = document.querySelectorAll('.js-nav-dropdown[aria-expanded="true"]');
+            openDropdowns.forEach(dropdown => {
+                if (!dropdown.contains(e.target) && !e.target.closest('.site-menu-lvl-1')) {
+                    dropdown.setAttribute('aria-expanded', 'false');
+                    const submenuId = dropdown.getAttribute('aria-controls');
+                    const submenu = document.getElementById(submenuId);
+                    if (submenu) {
+                        submenu.classList.remove('show');
+                        submenu.style.display = '';
+                    }
+                }
+            });
+            
+            // Close mobile dropdown panels
+            const mobilePanels = document.querySelectorAll('.dropdown-panel[style*="block"]');
+            mobilePanels.forEach(panel => {
+                if (!panel.contains(e.target) && 
+                    !e.target.closest('.mobile-dropdown-toggle')) {
+                    panel.style.display = 'none';
+                    
+                    // Reset toggle states
+                    const toggles = document.querySelectorAll('.mobile-dropdown-toggle');
+                    toggles.forEach(toggle => {
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                }
+            });
+            
+            // Close reveal modals
+            const revealModals = document.querySelectorAll('.reveal-modal[style*="block"]');
+            revealModals.forEach(modal => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+            });
+            
+            // Close metrics modal
+            const metricsModal = document.getElementById('MetricsModal');
+            if (metricsModal && e.target === metricsModal) {
+                metricsModal.style.display = 'none';
+                metricsModal.setAttribute('aria-hidden', 'true');
+                const trigger = document.querySelector('.js-artmet-modal-trigger');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            }
+        });
+        
+        // Escape key closes modals
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                // Close metrics modal
+                const metricsModal = document.getElementById('MetricsModal');
+                if (metricsModal && metricsModal.style.display === 'block') {
+                    metricsModal.style.display = 'none';
+                    metricsModal.setAttribute('aria-hidden', 'true');
+                    const trigger = document.querySelector('.js-artmet-modal-trigger');
+                    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+                }
+                
+                // Close reveal modals
+                const revealModals = document.querySelectorAll('.reveal-modal');
+                revealModals.forEach(modal => {
+                    if (modal.style.display === 'block') {
+                        modal.style.display = 'none';
+                        modal.setAttribute('aria-hidden', 'true');
+                    }
+                });
+                
+                // Close dropdown panels
+                const mobilePanels = document.querySelectorAll('.dropdown-panel');
+                mobilePanels.forEach(panel => {
+                    if (panel.style.display === 'block') {
+                        panel.style.display = 'none';
+                    }
+                });
+                
+                // Reset toggle states
+                const toggles = document.querySelectorAll('.mobile-dropdown-toggle');
+                toggles.forEach(toggle => {
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            }
+        });
+    }
+    
+    // ============================================
+    // 7. TABS FUNCTIONALITY
+    // ============================================
+    function initTabs() {
+        console.log('Initializing tabs...');
+        
+        const tabLinks = document.querySelectorAll('.articleListNewAndPopular-mode');
+        const tabContents = document.querySelectorAll('.articleListNewPopContent');
+        
+        tabLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs
+                tabLinks.forEach(l => l.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Hide all tab contents
+                tabContents.forEach(content => {
+                    content.classList.remove('hasContent');
+                    content.classList.add('hide');
+                });
+                
+                // Show selected tab content
+                const mode = this.getAttribute('data-mode');
+                const selectedContent = document.querySelector(`.articleListNewAndPopular-ContentView-${mode}`);
+                if (selectedContent) {
+                    selectedContent.classList.remove('hide');
+                    selectedContent.classList.add('hasContent');
+                }
+            });
+        });
+    }
+    
+    // ============================================
+    // 8. METRICS MODAL
+    // ============================================
+    function initMetricsModal() {
+        console.log('Initializing metrics modal...');
+        
+        const modalTrigger = document.querySelector('.js-artmet-modal-trigger');
+        const modalClose = document.querySelector('.js-artmet-close-modal');
+        const metricsModal = document.getElementById('MetricsModal');
+        
+        if (modalTrigger && metricsModal) {
+            modalTrigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                const isHidden = metricsModal.getAttribute('aria-hidden') === 'true';
+                metricsModal.setAttribute('aria-hidden', !isHidden);
+                metricsModal.style.display = isHidden ? 'block' : 'none';
+                this.setAttribute('aria-expanded', isHidden);
+                
+                if (isHidden) {
+                    loadChartData();
+                }
+            });
+        }
+        
+        if (modalClose) {
+            modalClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                metricsModal.style.display = 'none';
+                metricsModal.setAttribute('aria-hidden', 'true');
+                const trigger = document.querySelector('.js-artmet-modal-trigger');
+                if (trigger) trigger.setAttribute('aria-expanded', 'false');
+            });
+        }
+    }
+    
+    function loadChartData() {
+        // Check if Chartist is available
+        if (typeof Chartist === 'undefined') {
+            // Load Chartist dynamically
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js';
+            script.onload = function() {
+                createChart();
+            };
+            document.head.appendChild(script);
+            
+            // Load CSS if not already loaded
+            if (!document.querySelector('link[href*="chartist.min.css"]')) {
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = 'https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css';
+                document.head.appendChild(link);
+            }
+        } else {
+            createChart();
+        }
+        
+        function createChart() {
+            const chartElement = document.querySelector('.js-ct-chart');
+            if (!chartElement) return;
+            
+            const data = {
+                labels: ['Jun 2025', 'Jul 2025', 'Aug 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dec 2025'],
+                series: [[29, 454, 214, 254, 229, 258, 455]]
+            };
+            
+            const options = {
+                fullWidth: true,
+                chartPadding: {
+                    right: 40
+                },
+                axisY: {
+                    onlyInteger: true
+                }
+            };
+            
+            new Chartist.Line('.js-ct-chart', data, options);
+        }
+    }
+    
+    // ============================================
+    // 9. EMAIL ALERTS
+    // ============================================
+    function initEmailAlerts() {
+        console.log('Initializing email alerts...');
+        
+        // Activity alert button
+        const activityButtons = document.querySelectorAll('.js-activity-alert-button');
+        activityButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const revealId = this.getAttribute('data-reveal-id');
+                const modal = document.getElementById(revealId);
+                if (modal) {
+                    modal.style.display = 'block';
+                    modal.setAttribute('aria-hidden', 'false');
+                }
+            });
+        });
+        
+        // Close modal buttons
+        const closeModalButtons = document.querySelectorAll('.js-close-reveal-modal');
+        closeModalButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const modal = this.closest('.reveal-modal');
+                if (modal) {
+                    modal.style.display = 'none';
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+            });
+        });
+        
+        // Email alert links
+        const emailAlertLinks = document.querySelectorAll('.js-my-email-alert');
+        emailAlertLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (!App.LoginUserInfo.isIndividualLoggedIn) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    const modal = document.getElementById('journalIssuesAlertModal');
+                    if (modal) {
+                        modal.style.display = 'block';
+                        modal.setAttribute('aria-hidden', 'false');
+                    }
+                }
+            });
+        });
+    }
+    
+    // ============================================
+    // 10. COMMENTS SYSTEM
+    // ============================================
+    function initComments() {
+        console.log('Initializing comments...');
+        
+        const commentForm = document.getElementById('commentForm');
+        if (!commentForm) return;
+        
+        commentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const comment = document.getElementById('comment').value.trim();
+            
+            if (!name || !comment) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Create new comment element
+            const newComment = document.createElement('div');
+            newComment.className = 'comment';
+            newComment.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-author">${name}</span>
+                    <span class="comment-date">Just now</span>
+                </div>
+                <p>${comment}</p>
+            `;
+            
+            // Add to comments list
+            const commentsList = document.querySelector('.comments-list');
+            if (commentsList) {
+                const recentComments = commentsList.querySelector('h3');
+                if (recentComments && recentComments.nextSibling) {
+                    commentsList.insertBefore(newComment, recentComments.nextSibling);
+                }
+            }
+            
+            // Reset form
+            commentForm.reset();
+            
+            // Show success message
+            alert('Thank you for your comment! It has been posted.');
+        });
+    }
+    
+    // ============================================
+    // 11. ADVERTISEMENTS
+    // ============================================
+    function initAds() {
+        console.log('Initializing ads...');
+        
+        if (window.googletag && googletag.cmd) {
+            googletag.cmd.push(function() {
+                // Display all ad slots
+                const adSlots = [
+                    'adBlockHeader',
+                    'adBlockMainBodyTop', 
+                    'adBlockMainBodyBottom',
+                    'adBlockFooter',
+                    'adBlockStickyFooter'
+                ];
+                
+                adSlots.forEach(slotId => {
+                    const slot = gptAdSlots[slotId];
+                    if (slot) {
+                        googletag.display(slotId);
+                    }
+                });
+                
+                // Show ad containers when loaded
+                googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+                    if (!event.isEmpty) {
+                        const slotId = event.slot.getSlotElementId();
+                        const container = document.querySelector(`.js-${slotId}`);
+                        if (container) {
+                            container.classList.remove('hide');
+                        }
+                    }
+                });
+                
+                // Enable services
+                googletag.enableServices();
+            });
+        }
+    }
+    
+    // ============================================
+    // 12. RESPONSIVE BEHAVIOR
+    // ============================================
+    function initResponsiveBehavior() {
+        console.log('Initializing responsive behavior...');
+        
+        function handleResize() {
+            const sidebar = document.getElementById('Sidebar');
+            const content = document.getElementById('ContentColumn');
+            
+            // Adjust layout for mobile
+            if (window.innerWidth <= 1024) {
+                if (sidebar && content) {
+                    // CSS handles this, but we can add JS if needed
+                }
+                
+                // Remove hover events on mobile
+                const desktopDropdowns = document.querySelectorAll('.navbar-menu .js-nav-dropdown');
+                desktopDropdowns.forEach(dropdown => {
+                    dropdown.onmouseenter = null;
+                    dropdown.onmouseleave = null;
+                });
+            } else {
+                // Add hover events for desktop
+                const desktopDropdowns = document.querySelectorAll('.navbar-menu .js-nav-dropdown');
+                desktopDropdowns.forEach(dropdown => {
+                    dropdown.addEventListener('mouseenter', function() {
+                        this.setAttribute('aria-expanded', 'true');
+                        const submenuId = this.getAttribute('aria-controls');
+                        const submenu = document.getElementById(submenuId);
+                        if (submenu) submenu.classList.add('show');
+                    });
+                    
+                    const parentItem = dropdown.closest('.site-menu-item');
+                    if (parentItem) {
+                        parentItem.addEventListener('mouseleave', function() {
+                            const dropdown = this.querySelector('.js-nav-dropdown');
+                            if (dropdown) {
+                                dropdown.setAttribute('aria-expanded', 'false');
+                                const submenuId = dropdown.getAttribute('aria-controls');
+                                const submenu = document.getElementById(submenuId);
+                                if (submenu) submenu.classList.remove('show');
+                            }
+                        });
+                    }
+                });
+            }
+        }
+        
+        // Initial call
+        handleResize();
+        
+        // Listen for resize
+        window.addEventListener('resize', handleResize);
+    }
+    
+    // ============================================
+    // 13. EXTERNAL PLUGINS
+    // ============================================
+    function initExternalPlugins() {
+        console.log('Initializing external plugins...');
+        
+        // AI Discovery Assistant
+        const aiAssistantLinks = document.querySelectorAll('.js-navbar-ai-assistant-link');
+        aiAssistantLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tooltip = document.querySelector('.js-navbar-ai-assistant-tooltip');
+                if (tooltip) {
+                    tooltip.classList.toggle('hidden');
+                }
+            });
+        });
+        
+        // TrendMD suggestions
+        if (typeof trendmd !== 'undefined') {
+            trendmd.init();
+        }
+        
+        // Altmetric badges should auto-load
+        
+        // Dimensions badges should auto-load
+        
+        // ShareThis should auto-load
+    }
+    
+    // ============================================
+    // 14. GLOBAL EVENT LISTENERS
+    // ============================================
+    
+    // Prevent default on all javascript:; links that don't have handlers
+    document.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A' && e.target.getAttribute('href') === 'javascript:;') {
+            // If it doesn't have a click handler already, prevent default
+            if (!e.target.hasAttribute('onclick') && 
+                !e.target.classList.contains('js-nav-dropdown') &&
+                !e.target.classList.contains('articleListNewAndPopular-mode') &&
+                !e.target.classList.contains('js-activity-alert-button') &&
+                !e.target.classList.contains('js-my-email-alert') &&
+                !e.target.classList.contains('js-sign-in-link') &&
+                !e.target.classList.contains('js-register-link') &&
+                !e.target.classList.contains('js-shibboleth-action') &&
+                !e.target.classList.contains('js-artmet-modal-trigger') &&
+                !e.target.classList.contains('js-navbar-ai-assistant-link')) {
+                e.preventDefault();
+            }
+        }
+    });
+    
+    // Keyboard navigation for dropdowns
+    document.addEventListener('keydown', function(e) {
+        const focused = document.activeElement;
+        
+        // Close dropdowns on Escape
+        if (e.key === 'Escape') {
+            const openDropdowns = document.querySelectorAll('.js-nav-dropdown[aria-expanded="true"]');
+            openDropdowns.forEach(dropdown => {
+                dropdown.setAttribute('aria-expanded', 'false');
+                const submenuId = dropdown.getAttribute('aria-controls');
+                const submenu = document.getElementById(submenuId);
+                if (submenu) {
+                    submenu.classList.remove('show');
+                    submenu.style.display = '';
+                }
+            });
+        }
+        
+        // Navigate dropdowns with arrow keys
+        if (focused.classList.contains('js-nav-dropdown') && e.key === 'ArrowDown') {
+            e.preventDefault();
+            const submenuId = focused.getAttribute('aria-controls');
+            const submenu = document.getElementById(submenuId);
+            if (submenu) {
+                const firstLink = submenu.querySelector('a');
+                if (firstLink) firstLink.focus();
+            }
+        }
+    });
+    
+    // ============================================
+    // 15. POLYFILLS & FALLBACKS
+    // ============================================
+    
+    // Add classList.toggle with second parameter support for older browsers
+    if (!('toggle' in DOMTokenList.prototype)) {
+        DOMTokenList.prototype.toggle = function(token, force) {
+            if (force !== undefined) {
+                if (force) {
+                    this.add(token);
+                    return true;
+                } else {
+                    this.remove(token);
+                    return false;
+                }
+            }
+            
+            if (this.contains(token)) {
+                this.remove(token);
+                return false;
+            } else {
+                this.add(token);
+                return true;
+            }
+        };
+    }
+    
+    // Add forEach support for NodeList in older browsers
+    if (window.NodeList && !NodeList.prototype.forEach) {
+        NodeList.prototype.forEach = function(callback, thisArg) {
+            thisArg = thisArg || window;
+            for (var i = 0; i < this.length; i++) {
+                callback.call(thisArg, this[i], i, this);
+            }
+        };
+    }
+    
+    // ============================================
+    // 16. DEBUG HELPER
+    // ============================================
+    
+    // Uncomment for debugging
+    /*
+    window.debugPage = {
+        showAllDropdowns: function() {
+            document.querySelectorAll('.site-menu-lvl-1').forEach(menu => {
+                menu.style.display = 'block';
+                menu.style.border = '2px solid red';
+            });
+        },
+        hideAllDropdowns: function() {
+            document.querySelectorAll('.site-menu-lvl-1').forEach(menu => {
+                menu.style.display = 'none';
+            });
+        },
+        listInteractiveElements: function() {
+            console.log('Dropdowns:', document.querySelectorAll('.js-nav-dropdown').length);
+            console.log('Modals:', document.querySelectorAll('.reveal-modal').length);
+            console.log('Tabs:', document.querySelectorAll('.articleListNewAndPopular-mode').length);
+        }
+    };
+    */
+    
+    console.log('All JavaScript functions defined. Page will initialize when DOM is ready.');
 </script>
 
 </body>
